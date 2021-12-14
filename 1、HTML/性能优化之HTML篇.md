@@ -1,9 +1,5 @@
 # 性能优化之 HTML 篇
 
-## 前置知识
-
-[一文说清 DOMContentLoade 和 Load.md]('./../一文说清DOMContentLoade和Load.md)
-
 - 顺序上看
 
   - preload 预加载
