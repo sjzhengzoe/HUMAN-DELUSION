@@ -93,7 +93,7 @@ export default function App() {
     function recursionFun(tempkey) {
       let tree = [];
       data.forEach((item) => {
-        if (tempkey === item.parentKey) {
+        if (item && tempkey === item.parentKey) {
           tree.push({
             ...item,
             children: recursionFun(item.key),
@@ -134,7 +134,9 @@ export default function App() {
       oneData = oneData.map((item) => {
         // 找到要编辑的那个节点并修改title
         if (item.key === nowNode.key) {
-          return { ...item, title };
+          if (title) return { ...item, title };
+          if (item.title) return item;
+          return undefined;
         } else {
           return item;
         }
@@ -164,7 +166,15 @@ export default function App() {
     function add() {
       let oneData = moreToOne(treeDataNow);
       // 添加一个节点
-      oneData.push({ title: 'please input', key: new Date().getTime(), parentKey: nowNode.key });
+      const newNode = {
+        title: '',
+        key: new Date().getTime(),
+        parentKey: nowNode.key,
+        pos: nowNode.pos + '-0',
+      };
+      setNowNode(newNode);
+      oneData.push(newNode);
+      setEdit(true);
       const moreData = oneToMore(oneData);
       setTreeData(moreData);
     }
@@ -172,7 +182,7 @@ export default function App() {
     return (
       <>
         {isEdit && nowNode.key === key ? (
-          <input onBlur={onBlur} defaultValue={title} />
+          <input autoFocus onBlur={onBlur} defaultValue={title} />
         ) : (
           <span>{title}</span>
         )}
@@ -188,7 +198,7 @@ export default function App() {
   }
   // 选中的时候保存当前的节点数据
   function onSelect(selectedKeys, { selected, selectedNodes, node, event }) {
-    setNowNode(node);
+    selected && setNowNode(node);
   }
 
   return (
