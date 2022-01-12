@@ -354,9 +354,7 @@
             // 微信
             if (query.code) {
               groupJoinParams = {
-                nickName,
-                avatarUrl,
-                openId,
+                openId: openId,
                 groupId: query.groupId,
                 nickName: query.nickName,
                 avatarUrl: query.avatarUrl,
