@@ -354,10 +354,10 @@
             // 微信
             if (query.code) {
               groupJoinParams = {
-                openId: openId,
+                nickName,
+                avatarUrl,
+                openId,
                 groupId: query.groupId,
-                nickName: query.nickName,
-                avatarUrl: query.avatarUrl,
               };
             } else {
               groupJoinParams = {
