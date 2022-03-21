@@ -9,9 +9,6 @@
 import Loading from './components/Loading.vue';
 export default {
   name: 'App',
-  data: function () {
-    return { timer: null };
-  },
   components: { Loading },
   computed: {
     loading() {
@@ -21,11 +18,13 @@ export default {
   watch: {
     loading(value) {
       if (!value) {
+        // 页面加载完成恢复页面滚动
         document.getElementsByTagName('body')[0].style.overflow = 'scroll';
       }
     },
   },
   mounted() {
+    // 对资源加载完成进行监控
     this.$store.dispatch('init');
   },
 };
@@ -38,6 +37,8 @@ html {
   background: #fff4f5;
 }
 body {
+  padding: 0;
+  margin: 0;
   overflow: hidden;
   max-width: 750px;
   margin: 0 auto !important;
@@ -86,10 +87,6 @@ body {
     font-weight: bold;
     color: #ffffff;
   }
-}
-body {
-  padding: 0;
-  margin: 0;
 }
 // flex 相关
 .flex {

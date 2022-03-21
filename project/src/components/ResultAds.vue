@@ -22,7 +22,7 @@
             </div>
           </div>
         </div>
-        <img class="img" src="../assets/alipay.png" alt="" />
+        <img class="img" src="../assets/Pay_alipay.png" alt="" />
       </div>
     </div>
   </div>

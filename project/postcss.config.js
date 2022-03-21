@@ -5,9 +5,6 @@ const postcss = require('postcss-pxtorem')({
 
 module.exports = () => {
   return {
-    plugins: [
-      [postcss],
-      // postcss,
-    ],
+    plugins: [[postcss]],
   };
 };

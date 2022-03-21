@@ -7,11 +7,17 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
+    // 资源是否未加载完成
     resourceLoading: true,
+    // 接口是否未加载完成
     apiLoading: true,
+    // 支付页数据
     payData: {},
+    // 结果页数据
     resultData: {},
+    // 接口域名
     DOMAIN: 'https://test.a.yushiqm.com',
+    // 支付域名
     DOMAIN_PAY: 'https://test.p.yushiqm.com',
   },
   mutations: {
@@ -29,6 +35,7 @@ const store = new Vuex.Store({
     },
   },
   actions: {
+    // 对资源是否加载完成进行监控
     init({ commit }) {
       const timer = setInterval(function () {
         // 判断文档和所有子资源(图片、音视频等)已完成加载
@@ -38,23 +45,23 @@ const store = new Vuex.Store({
         }
       }, 500);
     },
-    // 首页 - 获取产品配置数据
+    // 首页 - 获取产品配置数据 获取id
     async getConfigData({ state }) {
       const { channel, params } = utils.urlParams();
       const res = await axios.get(`${state.DOMAIN}/product/config`, {
         params: { tag: 'hunyinceshi', channel },
       });
-      const id = res.data.product.id;
+      const id = res.data?.product?.id;
       utils.setLocal({ id, channel, params, tag: 'hunyinceshi' });
     },
-    // 下单
+    // 首页 - 下单接口 获取oid
     async postOrder({ state }, data) {
       console.log(state);
       const res = await await axios.post(`${state.DOMAIN}/order/order`, {
         ...data,
         tag: 'hunyinceshi',
       });
-      const oid = res.data.oid;
+      const oid = res.data?.oid;
       utils.setLocal({ oid });
     },
 
@@ -67,6 +74,7 @@ const store = new Vuex.Store({
       });
       commit('setPayData', res.data);
     },
+
     // 保存手机号码
     async postMobile({ state }, params) {
       const oid = utils.getLocal()?.oid;

@@ -34,7 +34,7 @@
           <!-- 微信 -->
           <div class="flex f-sb f-y-c item_box">
             <div class="flex f-y-c">
-              <img class="logo" src="../assets/weixin.png" alt="" />
+              <img class="logo" src="../assets/Pay_wechat.png" alt="" />
               <div class="text">微信支付</div>
             </div>
             <img
@@ -55,7 +55,7 @@
           <!-- 支付宝 -->
           <div class="flex f-sb f-y-c item_box">
             <div class="flex f-y-c">
-              <img class="logo" src="../assets/alipay.png" alt="" />
+              <img class="logo" src="../assets/Pay_alipay.png" alt="" />
               <div class="text">支付宝支付</div>
             </div>
             <img

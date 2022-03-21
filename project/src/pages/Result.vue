@@ -17,6 +17,7 @@
       :handleSaveMobile="handleSaveMobile"
     />
     <DialogStep2 v-if="step == 2 && !payData.phone" :handleStep="handleStep" />
+    <ScrollToTop />
   </div>
 </template>
 
@@ -34,6 +35,7 @@ import ResultBottom from '../components/ResultBottom.vue';
 import Footer from '../components/Footer.vue';
 import DialogStep1 from '../components/DialogStep1.vue';
 import DialogStep2 from '../components/DialogStep2.vue';
+import ScrollToTop from '../components/ScrollToTop.vue';
 import * as utils from '../utils';
 import { Toast } from 'mint-ui';
 export default {
@@ -49,6 +51,7 @@ export default {
     },
   },
   components: {
+    ScrollToTop,
     DialogStep1,
     DialogStep2,
     ResultInput,
