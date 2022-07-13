@@ -83,7 +83,7 @@ export default {
     payInfo() {
       this.price =
         this.payInfo && this.payInfo.payTotal ? this.numToPrice(this.payInfo.payTotal) : 0;
-      if (this.payInfo.payTotal != 5) {
+      if (this.payInfo.isUseCoupon) {
         this.isUseCode = true;
       }
     },
