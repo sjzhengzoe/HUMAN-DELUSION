@@ -4,7 +4,12 @@
       <div class="title">POPULAR DOCUMENTS IN THE WORLD</div>
       <div class="flex f-sb f-y-start flex-w">
         <template v-for="(item, idx) in list">
-          <div class="item flex f-y-c" v-if="(!isShowMore && idx < 12) || isShowMore" :key="idx">
+          <div
+            class="item flex f-y-c"
+            v-if="(!isShowMore && idx < 12) || isShowMore"
+            :key="idx"
+            @click="() => jumpLink(item)"
+          >
             <img class="img" src="@/assets/m/home-passport.png" alt="" />
             <div class="title_small">{{ item.photoType.name }}</div>
           </div>
@@ -26,6 +31,11 @@ export default {
       isShowMore: false,
       list: [],
     };
+  },
+  methods: {
+    jumpLink(item) {
+      this.$router.push({ path: '/country-photo', query: { photoTypeId: item.photoType.id } });
+    },
   },
   async mounted() {
     const { data } = await Api.getHotInfo();

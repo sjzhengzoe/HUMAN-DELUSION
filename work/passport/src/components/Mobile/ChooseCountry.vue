@@ -39,7 +39,7 @@
               alt=""
             />
             <span>{{ item.name }}</span>
-            <router-link :to="{ path: '/country-photo', query: { photoTypeId: chooseSize } }">
+            <router-link :to="{ path: '/country-photo', query: { photoTypeId: item.id } }">
               <div class="link">Image</div>
             </router-link>
           </div>

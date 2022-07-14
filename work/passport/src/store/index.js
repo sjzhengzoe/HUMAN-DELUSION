@@ -48,10 +48,19 @@ const store = new Vuex.Store({
       }
     },
     // 获取 /country-photo 数据
-    async getCountryPhoto({ commit }, { cb, code }) {
-      const { data } = await Api.getLinkInfo({ code });
-      if (data.code == 0) {
-        commit('setCountryPhotoData', data.data);
+    async getCountryPhoto({ commit }, { cb, code, photoTypeId }) {
+      let countryData;
+      if (code) {
+        const { data } = await Api.getLinkInfo({ code });
+        countryData = data;
+      }
+      if (photoTypeId) {
+        const { data } = await Api.getDocInfo({ photoTypeId });
+        countryData = data;
+      }
+
+      if (countryData.code == 0) {
+        commit('setCountryPhotoData', countryData.data);
       } else {
         cb();
       }

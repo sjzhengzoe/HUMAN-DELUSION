@@ -66,8 +66,14 @@ export default {
         this.$router.push('/');
       },
     };
-    if (this.$route.query.code) {
-      data.code = this.$route.query.code;
+    if (this.$route.query.code || this.$route.query.photoTypeId) {
+      if (this.$route.query.code) {
+        data.code = this.$route.query.code;
+      }
+      if (this.$route.query.photoTypeId) {
+        data.photoTypeId = this.$route.query.photoTypeId;
+      }
+
       this.$store.dispatch('getCountryPhoto', data);
     } else {
       this.$router.push('/');

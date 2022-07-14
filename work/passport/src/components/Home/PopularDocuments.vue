@@ -8,6 +8,7 @@
             class="item flex-y f-x-c f-y-c"
             v-if="(!isShowMore && idx < 12) || isShowMore"
             :key="idx"
+            @click="() => jumpLink(item)"
           >
             <img class="img" :src="item.photoType.picUrl" alt="" />
             <div class="title_small">{{ item.photoType.name }}</div>
@@ -30,6 +31,11 @@ export default {
       isShowMore: false,
       list: [],
     };
+  },
+  methods: {
+    jumpLink(item) {
+      this.$router.push({ path: '/country-photo', query: { photoTypeId: item.photoType.id } });
+    },
   },
   async mounted() {
     const { data } = await Api.getHotInfo();
