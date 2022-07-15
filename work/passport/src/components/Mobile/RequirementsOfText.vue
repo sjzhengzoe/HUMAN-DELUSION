@@ -2,7 +2,7 @@
   <div class="RequirementsOfText_component flex-y f-y-c" v-if="countryPhotoData">
     <div class="title flex f-y-c f-x-c">VIEW OTHER DOCUMENT PHOTO TYPES IN THE COUNTRY</div>
     <div class="sub_title">{{ countryPhotoData.region.name }} passport photo requirements</div>
-    <div class="content" v-html="countryPhotoData.region.details" />
+    <div class="content" v-html="countryPhotoData.photoType.details" />
   </div>
 </template>
 

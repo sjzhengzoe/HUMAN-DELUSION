@@ -9,7 +9,7 @@
           class="item"
           :class="{ active: activeIdx == idx }"
           :key="idx"
-          @click="activeIdx = idx"
+          @click="activeIdx = activeIdx == idx ? null : idx"
         >
           <div class="limit">
             <div class="que flex f-y-start">
@@ -93,6 +93,9 @@ export default {
     }
     &.active {
       background: rgba(229, 229, 229, 0.18);
+      .icon_drop {
+        transform: rotate(180deg);
+      }
     }
 
     .que {

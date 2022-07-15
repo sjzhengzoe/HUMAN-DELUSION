@@ -1,5 +1,5 @@
 <template>
-  <div class="ChooseCountryCard_component">
+  <div class="ChooseCountryCard_component" v-if="countryCardData">
     <div class="bg flex-y f-y-c">
       <div class="title">
         <div>{{ countryCardData.photoType.title }}</div>
@@ -97,8 +97,9 @@ export default {
   .bg {
     max-width: 1920px;
     height: 660px;
+    box-sizing: border-box;
     margin: 0 auto;
-    background: url('../../assets/pc/choose_country_card_bg.png') center/contain no-repeat;
+    background: url('../../assets/pc/choose_country_card_bg.png') center/cover no-repeat;
   }
 
   .title {
@@ -108,7 +109,7 @@ export default {
     font-weight: 600;
     color: #071c43;
     line-height: 70px;
-    padding-top: 70px;
+    padding: 134px 0 0 42px;
   }
   .desc {
     width: 1000px;
@@ -117,11 +118,11 @@ export default {
     font-weight: 600;
     color: #071c43;
     line-height: 33px;
-    padding: 13px 0 19px;
+    padding: 13px 0 19px 42px;
   }
   .choose_box {
     width: 1000px;
-    padding-left: 25px;
+    padding-left: 51px;
     box-sizing: border-box;
     .choose_title {
       font-size: 14px;

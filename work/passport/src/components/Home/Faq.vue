@@ -3,7 +3,12 @@
     <img class="banner" src="../../assets/pc/faq_banner.png" alt="" />
     <div class="content">
       <template v-for="(item, idx) in list">
-        <div class="item" :key="idx" @click="activeIdx = idx">
+        <div
+          class="item"
+          :key="idx"
+          :class="{ active: activeIdx == idx }"
+          @click="activeIdx = activeIdx == idx ? null : idx"
+        >
           <div class="limit">
             <div class="que flex f-y-start">
               <span class="text flex-y">
@@ -55,7 +60,11 @@ export default {
   }
   .item {
     background: #fff;
-
+    &.active {
+      .icon_drop {
+        transform: rotate(180deg);
+      }
+    }
     &:last-child {
       .limit {
         border-bottom: 0;

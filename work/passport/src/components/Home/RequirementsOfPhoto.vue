@@ -7,7 +7,7 @@
           <img class="icon" src="../../assets/pc/CountryPhoto_icon1.png" alt="" />
           <div>
             <div class="sub_title">Size</div>
-            <div class="content">{{ countryPhotoData.photoType.size }}</div>
+            <div class="content">{{ countryPhotoData.photoType.pixel }}</div>
           </div>
         </div>
         <div class="item_box flex f-y-c">
@@ -21,7 +21,7 @@
           <img class="icon" src="../../assets/pc/CountryPhoto_icon3.png" alt="" />
           <div>
             <div class="sub_title">Resolution</div>
-            <div class="content">{{ countryPhotoData.photoType.resolution }}</div>
+            <div class="content">{{ countryPhotoData.photoType.dpi }}</div>
           </div>
         </div>
         <div class="item_box flex f-y-c">
@@ -35,7 +35,7 @@
           <img class="icon" src="../../assets/pc/CountryPhoto_icon5.png" alt="" />
           <div>
             <div class="sub_title">Image definition</div>
-            <div class="content">{{ countryPhotoData.photoType.imageDefinition }}</div>
+            <div class="content">{{ countryPhotoData.photoType.requirement }}</div>
           </div>
         </div>
         <div class="item_box flex f-y-c">

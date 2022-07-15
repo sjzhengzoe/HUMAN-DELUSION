@@ -54,6 +54,7 @@ export default {
       captchaCode: '', // 用户输入的验证码
       uploadStatus: null, // 上传进度
       loading: false,
+      loadingCode: true,
       // 压缩配置
       compressOptions: {
         quality: 0.9,
@@ -74,6 +75,7 @@ export default {
       const res = await Api.getValidCode();
       this.needCode = res.data.data.captchaVerify;
       this.code = res.data.data.image;
+      this.loadingCode = false;
     },
     // 检查图片类型
     checkType() {
@@ -91,7 +93,7 @@ export default {
     },
     // 上传按钮
     handleUploadFile() {
-      if (this.loading) return null;
+      if (this.loading || this.loadingCode) return null;
       this.loading = true;
       if (!this.uploadFile) {
         Message.error('请先上传图片');
